@@ -61,11 +61,6 @@ describe('generate-data', function() {
       app.use(data);
       assert(app.has('cache.originalData'));
     });
-
-    it('should clone data after updating it', function() {
-      app.use(data);
-      assert(app.has('cache.modifiedData'));
-    });
   });
 
   describe('generator', function() {

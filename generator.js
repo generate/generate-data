@@ -6,17 +6,25 @@ var utils = require('./utils');
 module.exports = function plugin(app, base) {
   if (!utils.isValid(app, 'generate-data')) return;
 
+  /**
+   * Clone `cache.data` before it's modified
+   */
+
   if (!app.has('cache.originalData')) {
     app.set('cache.originalData', utils.clone(app.cache.data));
   }
 
+  /**
+   * Use `base-data` plugin
+   */
+
   app.use(utils.data());
-  app.cache.data.project = app.cache.data.project || {};
 
   /**
    * Update and normalize data
    */
 
+  app.cache.data.project = app.cache.data.project || {};
   app.data({cwd: app.cwd});
   app.data({year: new Date().getFullYear()});
   app.data(app.pkg.data);
@@ -37,10 +45,6 @@ module.exports = function plugin(app, base) {
   set(app, 'description');
   set(app, 'alias');
   set(app, 'owner');
-
-  if (!app.has('cache.modifiedData')) {
-    app.set('cache.modifiedData', utils.clone(app.cache.data));
-  }
   return plugin;
 };
 
