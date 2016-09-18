@@ -10,6 +10,7 @@ require = utils;
 
 require('base-data', 'data');
 require('camel-case', 'camelcase');
+require('clone-deep', 'clone');
 require('fs-exists-sync', 'exists');
 require('is-valid-app', 'isValid');
 require('expand-pkg', 'Expand');

@@ -56,6 +56,18 @@ describe('generate-data', function() {
     });
   });
 
+  describe('clonedData', function() {
+    it('should clone original, unmodified data before updating it', function() {
+      app.use(data);
+      assert(app.has('cache.originalData'));
+    });
+
+    it('should clone data after updating it', function() {
+      app.use(data);
+      assert(app.has('cache.modifiedData'));
+    });
+  });
+
   describe('generator', function() {
     it('should add data to a generator', function(cb) {
       app.use(data);

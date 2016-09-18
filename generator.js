@@ -6,6 +6,10 @@ var utils = require('./utils');
 module.exports = function plugin(app, base) {
   if (!utils.isValid(app, 'generate-data')) return;
 
+  if (!app.has('cache.originalData')) {
+    app.set('cache.originalData', utils.clone(app.cache.data));
+  }
+
   app.use(utils.data());
   app.cache.data.project = app.cache.data.project || {};
 
@@ -33,6 +37,10 @@ module.exports = function plugin(app, base) {
   set(app, 'description');
   set(app, 'alias');
   set(app, 'owner');
+
+  if (!app.has('cache.modifiedData')) {
+    app.set('cache.modifiedData', utils.clone(app.cache.data));
+  }
   return plugin;
 };
 
