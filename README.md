@@ -2,8 +2,6 @@
 
 > Generate plugin that gathers data from the user's environment to pre-populate data for hints.
 
-![generate-data demo](https://raw.githubusercontent.com/generate/generate-data/master/docs/demo.gif)
-
 ## Usage
 
 Use as a plugin inside your [generate](https://github.com/generate/generate) generator:
