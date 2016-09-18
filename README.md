@@ -2,6 +2,37 @@
 
 > Generate plugin that gathers data from the user's environment to pre-populate data for hints.
 
+![generate-data demo](https://raw.githubusercontent.com/generate/generate-data/master/docs/demo.gif)
+
+## Heads up!
+
+This plugin modifies the `app.cache.data` object with "expanded" values. For example, the following `author` property from package.json:
+
+```js
+{
+  author: 'Jon Schlinkert (https://github.com/jonschlinkert)'
+}
+```
+
+Is expanded to:
+
+```js
+{
+  author: {
+    name: 'Jon Schlinkert',
+    url: 'https://github.com/jonschlinkert'
+  }
+}
+```
+
+**"original" data**
+
+Before data is modified, it's cloned and set on the `app.cache.originalData` object. You can reset the data object to this value by doing something like the following:
+
+```js
+app.cache.data = app.cache.clonedData;
+```
+
 ## Usage
 
 Use as a plugin inside your [generate](https://github.com/generate/generate) generator:
