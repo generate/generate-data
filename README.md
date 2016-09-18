@@ -2,8 +2,6 @@
 
 > Generate plugin that gathers data from the user's environment to pre-populate data for hints.
 
-![generate-data demo](https://raw.githubusercontent.com/generate/generate-data/master/docs/demo.gif)
-
 ## Heads up!
 
 This plugin modifies the `app.cache.data` object with "expanded" values. For example, the following `author` property from package.json:
