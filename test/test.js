@@ -1,6 +1,7 @@
 'use strict';
 
 require('mocha');
+var isTravis = process.env.CI || process.env.TRAVIS;
 var path = require('path');
 var assert = require('assert');
 var gitty = require('gitty');
@@ -119,13 +120,14 @@ describe('generate-data', function() {
     });
 
     it('should add data to the context', function(cb) {
+      var repo = isTravis ? 'Travis/test-project' : 'jonschlinkert/test-project';
       render(app, function(err) {
         if (err) return cb(err);
         var ctx = app.cache.data;
         assert.equal(ctx.year, new Date().getFullYear());
         assert.equal(ctx.license, 'MIT');
         assert.equal(ctx.author.url, 'https://github.com/jonschlinkert');
-        assert.equal(ctx.repository, 'jonschlinkert/test-project');
+        assert.equal(ctx.repository, repo);
         assert.equal(ctx.username, 'jonschlinkert');
         assert.equal(ctx.owner, 'jonschlinkert');
         cb();
@@ -292,13 +294,14 @@ describe('generate-data', function() {
     });
 
     it('should add data to the context', function(cb) {
+      var repo = isTravis ? 'Travis/test-project' : 'jonschlinkert/test-project';
       render(app, function(err) {
         if (err) return cb(err);
         var ctx = app.cache.data;
         assert.equal(ctx.year, new Date().getFullYear());
         assert.equal(ctx.author.url, 'https://github.com/jonschlinkert');
         assert.equal(ctx.license, 'MIT');
-        assert.equal(ctx.repository, 'jonschlinkert/test-project');
+        assert.equal(ctx.repository, repo);
         assert.equal(ctx.username, 'jonschlinkert');
         assert.equal(ctx.owner, 'jonschlinkert');
         cb();

@@ -39,6 +39,7 @@
     "gitty": "^3.3.6",
     "gulp-format-md": "^0.1.10",
     "is-valid-app": "^0.2.1",
+    "mkdirp": "^0.5.1",
     "mocha": "^3.0.2"
   },
   "keywords": [
