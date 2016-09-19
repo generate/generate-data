@@ -35,10 +35,9 @@ module.exports = function plugin(app, base) {
 
   var config = expander(app);
   app.data(config.expand(app.cache.data));
-  app.data('runner', {
-    name: 'generate',
-    homepage: 'https://github.com/generate/generate'
-  });
+  if (!app.has('cache.data.runner')) {
+    app.data('runner', {name: 'generate', homepage: 'https://github.com/generate/generate'});
+  }
 
   set(app, 'name');
   set(app, 'varname');
