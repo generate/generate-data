@@ -9,7 +9,6 @@ var generate = require('generate');
 var del = require('delete');
 var data = require('..');
 var repo, app, cache;
-
 var project = path.resolve(__dirname, 'fixtures/project');
 var cwd = process.cwd();
 
@@ -120,14 +119,19 @@ describe('generate-data', function() {
     });
 
     it('should add data to the context', function(cb) {
-      var repo = isTravis ? 'Travis/test-project' : 'jonschlinkert/test-project';
       render(app, function(err) {
         if (err) return cb(err);
         var ctx = app.cache.data;
         assert.equal(ctx.year, new Date().getFullYear());
         assert.equal(ctx.license, 'MIT');
         assert.equal(ctx.author.url, 'https://github.com/jonschlinkert');
-        assert.equal(ctx.repository, repo);
+
+        if (isTravis) {
+          cb();
+          return;
+        }
+
+        assert.equal(ctx.repository, 'jonschlinkert/test-project');
         assert.equal(ctx.username, 'jonschlinkert');
         assert.equal(ctx.owner, 'jonschlinkert');
         cb();
@@ -294,14 +298,19 @@ describe('generate-data', function() {
     });
 
     it('should add data to the context', function(cb) {
-      var repo = isTravis ? 'Travis/test-project' : 'jonschlinkert/test-project';
       render(app, function(err) {
         if (err) return cb(err);
         var ctx = app.cache.data;
         assert.equal(ctx.year, new Date().getFullYear());
         assert.equal(ctx.author.url, 'https://github.com/jonschlinkert');
         assert.equal(ctx.license, 'MIT');
-        assert.equal(ctx.repository, repo);
+
+        if (isTravis) {
+          cb();
+          return;
+        }
+
+        assert.equal(ctx.repository, 'jonschlinkert/test-project');
         assert.equal(ctx.username, 'jonschlinkert');
         assert.equal(ctx.owner, 'jonschlinkert');
         cb();
