@@ -1,7 +1,7 @@
 {
   "name": "generate-data",
   "description": "Generate plugin that gathers data from the user's environment to pre-populate data for hints.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/generate/generate-data",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "generate/generate-data",
