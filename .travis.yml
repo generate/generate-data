@@ -4,5 +4,5 @@ node_js:
   - node
   - '6'
 before_install:
-  - git config user.email "travis@sellside.com"
-  - git config user.name "Travis"
+  - git config --global user.email "travis@sellside.com"
+  - git config --global user.name "Travis"
