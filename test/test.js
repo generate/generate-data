@@ -131,9 +131,9 @@ describe('generate-data', function() {
           return;
         }
 
-        assert.equal(ctx.repository, 'jonschlinkert/test-project');
+        assert.equal(ctx.repository, 'doowb/test-project');
         assert.equal(ctx.username, 'jonschlinkert');
-        assert.equal(ctx.owner, 'jonschlinkert');
+        assert.equal(ctx.owner, 'doowb');
         cb();
       });
     });
@@ -310,9 +310,9 @@ describe('generate-data', function() {
           return;
         }
 
-        assert.equal(ctx.repository, 'jonschlinkert/test-project');
+        assert.equal(ctx.repository, 'doowb/test-project');
         assert.equal(ctx.username, 'jonschlinkert');
-        assert.equal(ctx.owner, 'jonschlinkert');
+        assert.equal(ctx.owner, 'doowb');
         cb();
       });
     });
