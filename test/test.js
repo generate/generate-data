@@ -218,7 +218,7 @@ describe('generate-data', function() {
 
   describe('twitter (data)', function() {
     beforeEach(function(cb) {
-      app.data({twitter: 'doowb'})
+      app.data({twitter: 'doowb'});
       app.use(data);
       cb();
     });

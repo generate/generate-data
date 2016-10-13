@@ -3,11 +3,9 @@
 require('mocha');
 var path = require('path');
 var assert = require('assert');
-var gitty = require('gitty');
 var generate = require('generate');
-var del = require('delete');
 var data = require('..');
-var repo, app;
+var app;
 
 var project = path.resolve(__dirname, 'fixtures/project-no-git');
 var cwd = process.cwd();

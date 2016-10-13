@@ -3,12 +3,10 @@
 require('mocha');
 var path = require('path');
 var assert = require('assert');
-var gitty = require('gitty');
 var generate = require('generate');
 var mkdirp = require('mkdirp');
-var del = require('delete');
 var data = require('..');
-var repo, app;
+var app;
 
 var project = path.resolve(__dirname, 'fixtures/project-empty');
 var cwd = process.cwd();
@@ -19,7 +17,7 @@ describe('generate-data (empty)', function() {
       if (err) return cb(err);
       process.chdir(project);
       cb();
-    })
+    });
   });
 
   after(function() {

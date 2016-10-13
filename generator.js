@@ -1,6 +1,5 @@
 'use strict';
 
-var path = require('path');
 var utils = require('./utils');
 
 module.exports = function plugin(app, base) {
