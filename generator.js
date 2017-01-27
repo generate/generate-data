@@ -28,6 +28,9 @@ module.exports = function plugin(app, base) {
   app.data({year: new Date().getFullYear()});
   app.data(app.pkg.data);
 
+  // restore original user-defined data
+  app.data(app.cache.originalData);
+
   /**
    * "Expand" fields using `expand-pkg`
    */
