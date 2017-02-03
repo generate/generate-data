@@ -104,12 +104,12 @@ function expander(app) {
 
   config.field('alias', 'string', {
     normalize: function(val, key, config, schema) {
-      var data = app.cache.data || {};
+      var name = config.name || '';
       var toAlias = schema.options.toAlias;
       if (typeof toAlias === 'function') {
-        val = toAlias.call(data, data.name);
+        val = toAlias.call(config, name);
       } else {
-        val = data.name.slice(data.name.lastIndexOf('-') + 1);
+        val = name.slice(name.lastIndexOf('-') + 1);
         val = utils.camelcase(val);
       }
       config[key] = val;
