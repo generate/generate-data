@@ -9,6 +9,9 @@ node_js:
   - '4'
   - '0.12'
   - '0.10'
+before_install:
+  - git config --global user.email "travis@sellside.com"
+  - git config --global user.name "Travis"
 matrix:
   allow_failures:
     - node_js: '4'
